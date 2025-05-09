@@ -290,7 +290,7 @@ void TaskSendAttributes(void *pvParameters) {
 void initWiFi() {
     WiFi.mode(WIFI_STA);
     WiFi.setAutoReconnect(false);
-    Serial.println("[INFO] WiFi: Initialized in STA mode.");
+    Serial.println("WiFi initialized.");
 }
 
 void initDHT20() {
@@ -317,7 +317,7 @@ void initTask() {
                 &TaskConnectServerHandle);
     xTaskCreate(TaskSendAttributes, "sendAttributes", 4096U, NULL, 1,
                 &TaskSendAttributesHandle);
-    Serial.println("[INFO] RTOS: Task created successfully");
+    Serial.println("RTOS Task created.");
 }
 
 void setup() {
@@ -326,7 +326,7 @@ void setup() {
 
     sensorDataMutex = xSemaphoreCreateMutex();
     if (sensorDataMutex == NULL) {
-        Serial.println("[ERROR] System: Failed to create mutex.");
+        Serial.println("System failed to create mutex.");
         while (1); 
     }
 
