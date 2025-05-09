@@ -322,8 +322,6 @@ void initTask() {
 
 void setup() {
     Serial.begin(SERIAL_DEBUG_BAUD);
-    Serial.println("\n=== LAB 2: CORE IOT PLATFORM ===");
-
     sensorDataMutex = xSemaphoreCreateMutex();
     if (sensorDataMutex == NULL) {
         Serial.println("System failed to create mutex.");
